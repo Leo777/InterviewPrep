@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MySortedLinkedList<T extends Comparable> {
-  private  Node root;
-  private  int counter = 0;
+    private Node root;
+    private int counter = 0;
 
 
     public MySortedLinkedList() {
@@ -55,6 +58,16 @@ public class MySortedLinkedList<T extends Comparable> {
             position++;
         }
         return current.element;
+    }
+
+    public List<Comparable> getSorted() {
+        List<Comparable> sortedList = new ArrayList<Comparable>();
+        Node current = root;
+        for (int i = 0; i < counter; i++) {
+            sortedList.add(current.element);
+            current = current.next;
+        }
+        return sortedList;
     }
 
     private class Node<E> {
